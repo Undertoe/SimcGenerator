@@ -8,6 +8,7 @@
 #include <QFile>
 #include <QDebug>
 #include <QSqlError>
+#include <QCoreApplication>
 
 #include <QStringList>
 #include <QList>

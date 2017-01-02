@@ -33,9 +33,12 @@ FORMS    += dialog.ui \
 DISTFILES += \
     TODO
 
+macx: {
 copydata.commands = $(COPY_DIR) $$PWD/simcgendb.db $$OUT_PWD
 first.depends = $(first) copydata
 export(first.depends)
 export(copydata.commands)
+}
+
 
 QMAKE_EXTRA_TARGETS += first copydata

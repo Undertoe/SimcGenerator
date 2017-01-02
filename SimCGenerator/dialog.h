@@ -10,6 +10,7 @@
 #include <QDir>
 #include <QStringListModel>
 #include <QListView>
+#include <QCoreApplication>
 
 
 #include "generator.h"

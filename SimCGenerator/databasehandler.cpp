@@ -4,7 +4,9 @@ DatabaseHandler::DatabaseHandler()
 {
     this->db = QSqlDatabase::addDatabase("QSQLITE");
     QDir dir = QDir::current();
+    QString tmp = QCoreApplication::applicationDirPath();
     qDebug() << dir.path();
+    qDebug() << tmp;
 #ifdef __APPLE__    // because apple says fuck you executables,
     dir.cdUp();     // you get to go 3 directories up.  because we're a
     dir.cdUp();     // bunch of cocks
@@ -12,6 +14,10 @@ DatabaseHandler::DatabaseHandler()
 #endif
     qDebug() << dir.path();
     qDebug() << dir.path() + "simcgendb.db";
+#ifdef _WIN32
+    dir.setPath(tmp);
+    qDebug() << "test";
+#endif
     qDebug() << dir.absoluteFilePath("simcgendb.db");
     db.setDatabaseName(dir.absoluteFilePath("simcgendb.db"));
 }
