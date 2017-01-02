@@ -11,6 +11,9 @@ Dialog::Dialog(QWidget *parent) :
 
     this->db = new DatabaseHandler();
 
+    this->ui->tabGear->hide();
+    this->ui->tabRelics->hide();
+
     lookup = new Lookup();
     this->classTypeList = new QList<ClassType>();
     this->specTypeList = new QList<SpecType>();
@@ -316,6 +319,11 @@ void Dialog::GenerateTalents()
             talentRow.removeAt(0);
         talents.append(talentRow);
         talentRow.clear();
+
+        if(this->ui->textEditFileSave->toPlainText().contains("Directory For File"))
+        {
+            this->GenerateFile();
+        }
 
         QDir dir(this->ui->textEditFileSave->toPlainText() + "/" + "talents.simc");
         QString outputFileLocation = dir.path();
