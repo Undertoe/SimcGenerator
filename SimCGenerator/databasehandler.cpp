@@ -82,7 +82,7 @@ QStringList DatabaseHandler::GetClasses()
 {
     QStringList retval = QStringList();
     open();
-    QString q = "SELECT class_name FROM classes";
+    QString q = "SELECT full_class_name FROM classes";
     int i = 0;
 
     QSqlQuery query(db);
@@ -95,7 +95,7 @@ QStringList DatabaseHandler::GetClasses()
     while(query.next())
     {
 //        qDebug() << "Search: " + QString::number(i++);
-        QString t = query.value("class_name").toString();
+        QString t = query.value("full_class_name").toString();
         retval.append(t);
     }
 

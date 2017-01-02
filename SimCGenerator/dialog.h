@@ -18,6 +18,7 @@
 #include "gearselection.h"
 #include "databasehandler.h"
 
+
 class GearSelection;
 
 namespace Ui {
